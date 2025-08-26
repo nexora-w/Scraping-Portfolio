@@ -31,155 +31,128 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-export default function WebScrapingPortfolio() {
+export default function PersonalPortfolio() {
   const projects = [
     {
-      title: "E-commerce Price Monitor",
+      title: "E-commerce Platform",
       description:
-        "Real-time price tracking across 50+ retailers with automated alerts",
-      tech: ["Python", "Scrapy", "PostgreSQL", "Redis"],
-      metrics: "10M+ products tracked daily",
+        "Full-stack e-commerce application with React, Node.js, and MongoDB",
+      tech: ["React", "Node.js", "MongoDB", "Express"],
+      metrics: "500+ users, 99.9% uptime",
       image: "/placeholder.jpg",
-      code: `
-# Price monitoring spider
-class PriceSpider(scrapy.Spider):
-    name = 'price_monitor'
-    
-    def parse(self, response):
-        yield {
-            'product_id': response.css('.product-id::text').get(),
-            'price': response.css('.price::text').re_first(r'\\d+\\.\\d+'),
-            'timestamp': datetime.now()
-        }`,
+      code: "// React component example\nconst ProductCard = ({ product }) => {\n  return (\n    <div className=\"product-card\">\n      <img src={product.image} alt={product.name} />\n      <h3>{product.name}</h3>\n      <p>${product.price}</p>\n      <button>Add to Cart</button>\n    </div>\n  );\n};",
     },
     {
-      title: "Social Media Analytics",
+      title: "Task Management App",
       description:
-        "Multi-platform data extraction for sentiment analysis and trend detection",
-      tech: ["Node.js", "Puppeteer", "MongoDB", "Docker"],
-      metrics: "500K+ posts analyzed weekly",
+        "Real-time collaborative task management with authentication and real-time updates",
+      tech: ["Next.js", "TypeScript", "Prisma", "Socket.io"],
+      metrics: "1000+ tasks created, real-time collaboration",
       image: "/placeholder.jpg",
-      code: `
-// Dynamic content scraping
-await page.evaluate(() => {
-    return Array.from(document.querySelectorAll('.post'))
-        .map(post => ({
-            content: post.querySelector('.text').innerText,
-            engagement: post.querySelector('.likes').innerText,
-            timestamp: post.querySelector('.date').innerText
-        }));
-});`,
+      code: "// API route example\nexport async function POST(req: Request) {\n  const { title, description } = await req.json();\n  const task = await prisma.task.create({\n    data: { title, description, userId: session.user.id }\n  });\n  return NextResponse.json(task);\n}",
     },
     {
-      title: "Real Estate Data Pipeline",
+      title: "Portfolio Website",
       description:
-        "Automated property listing aggregation with market analysis",
-      tech: ["Python", "Selenium", "Apache Airflow", "AWS"],
-      metrics: "1M+ listings processed monthly",
+        "Modern, responsive portfolio built with Next.js and Tailwind CSS",
+      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+      metrics: "100% Lighthouse score, responsive design",
       image: "/placeholder.jpg",
-      code: `
-# Headless browser automation
-options = webdriver.ChromeOptions()
-options.add_argument('--headless')
-driver = webdriver.Chrome(options=options)
-
-properties = driver.find_elements(By.CLASS_NAME, 'property-card')
-for prop in properties:
-    yield extract_property_data(prop)`,
+      code: "// Component with animations\nconst AnimatedCard = ({ children }) => {\n  return (\n    <motion.div\n      initial={{ opacity: 0, y: 20 }}\n      animate={{ opacity: 1, y: 0 }}\n      transition={{ duration: 0.5 }}\n    >\n      {children}\n    </motion.div>\n  );\n};",
     },
   ];
 
   const services = [
     {
       icon: <Globe2 className="w-8 h-8" />,
-      title: "Data Extraction",
-      description: "Custom web scrapers for any website or platform",
-      features: ["Anti-detection measures", "Rate limiting", "Proxy rotation"]
+      title: "Frontend Development",
+      description: "Modern, responsive web applications with React and Next.js",
+      features: ["React/Next.js", "TypeScript", "Tailwind CSS", "Responsive design"]
     },
     {
       icon: <Database className="w-8 h-8" />,
-      title: "Data Processing",
-      description: "Clean, validate, and structure raw data",
-      features: ["Data cleaning", "Format conversion", "Quality assurance"]
+      title: "Backend Development",
+      description: "Robust APIs and server-side applications",
+      features: ["Node.js/Express", "Python/FastAPI", "Database design", "API development"]
     },
     {
       icon: <BarChart3 className="w-8 h-8" />,
-      title: "Analytics & Insights",
-      description: "Transform data into actionable business intelligence",
-      features: ["Trend analysis", "Custom dashboards", "Automated reporting"]
+      title: "Full-Stack Solutions",
+      description: "End-to-end web applications from concept to deployment",
+      features: ["Full-stack development", "Database integration", "Authentication", "Deployment"]
     },
     {
       icon: <Server className="w-8 h-8" />,
-      title: "Infrastructure",
-      description: "Scalable, reliable data pipelines",
-      features: ["Cloud deployment", "Monitoring", "Backup systems"]
+      title: "DevOps & Deployment",
+      description: "CI/CD pipelines and cloud infrastructure",
+      features: ["Docker", "AWS/Vercel", "CI/CD", "Monitoring"]
     }
   ];
 
   const experience = [
     {
       year: "2024",
-      title: "Senior Data Engineer",
+      title: "Full Stack Developer",
       company: "TechCorp",
-      description: "Led web scraping initiatives for Fortune 500 clients"
+      description: "Developed modern web applications using React, Node.js, and cloud technologies"
     },
     {
       year: "2023",
-      title: "Full Stack Developer",
-      company: "DataFlow Inc",
-      description: "Built automated data collection systems"
+      title: "Frontend Developer",
+      company: "WebFlow Inc",
+      description: "Built responsive user interfaces and improved user experience"
     },
     {
       year: "2022",
-      title: "Python Developer",
+      title: "Junior Developer",
       company: "StartupXYZ",
-      description: "Developed scraping tools for e-commerce analytics"
+      description: "Contributed to full-stack projects and learned modern development practices"
     }
   ];
 
   const testimonials = [
     {
       name: "Sarah Johnson",
-      role: "CTO, RetailTech",
-      content: "The web scraping solution increased our data accuracy by 95% and saved us 40 hours per week.",
+      role: "Senior Developer, TechCorp",
+      content: "Excellent problem-solving skills and always delivers clean, maintainable code. Great team player!",
       rating: 5
     },
     {
       name: "Michael Chen",
-      role: "Data Scientist, FinTech Corp",
-      content: "Professional, reliable, and delivered exactly what we needed. Highly recommended!",
+      role: "Project Manager, WebFlow Inc",
+      content: "Consistently delivers high-quality work on time. Strong technical skills and great communication.",
       rating: 5
     },
     {
       name: "Emily Rodriguez",
-      role: "Product Manager, E-commerce Platform",
-      content: "Outstanding technical expertise and excellent communication throughout the project.",
+      role: "Lead Developer, StartupXYZ",
+      content: "Quick learner with strong fundamentals. Contributes valuable ideas and executes them well.",
       rating: 5
     }
   ];
 
   const stats = [
-    { label: "Projects Completed", value: "150+", icon: <CheckCircle className="w-6 h-6" /> },
-    { label: "Data Points Processed", value: "1B+", icon: <Database className="w-6 h-6" /> },
-    { label: "Client Satisfaction", value: "98%", icon: <Star className="w-6 h-6" /> },
-    { label: "Uptime Guarantee", value: "99.9%", icon: <Shield className="w-6 h-6" /> }
+    { label: "Projects Completed", value: "25+", icon: <CheckCircle className="w-6 h-6" /> },
+    { label: "Lines of Code", value: "50K+", icon: <Database className="w-6 h-6" /> },
+    { label: "Git Commits", value: "500+", icon: <Star className="w-6 h-6" /> },
+    { label: "Technologies", value: "15+", icon: <Shield className="w-6 h-6" /> }
   ];
 
   const skills = [
-    { name: "Python", level: 95, icon: <Code className="w-4 h-4" /> },
+    { name: "React/Next.js", level: 95, icon: <Code className="w-4 h-4" /> },
     {
-      name: "JavaScript/Node.js",
+      name: "TypeScript",
       level: 90,
       icon: <Terminal className="w-4 h-4" />,
     },
     {
-      name: "SQL Databases",
+      name: "Node.js/Express",
       level: 85,
       icon: <Database className="w-4 h-4" />,
     },
     {
-      name: "Web Technologies",
-      level: 92,
+      name: "Python/FastAPI",
+      level: 80,
       icon: <Globe className="w-4 h-4" />,
     },
   ];
@@ -193,15 +166,15 @@ for prop in properties:
             <div className="flex items-center space-x-2">
               <Terminal className="w-6 h-6 text-primary" />
               <span className="font-mono text-lg font-bold">
-                WebScraper.dev
+                John Doe
               </span>
             </div>
             <div className="flex items-center space-x-6">
               <a
-                href="#services"
+                href="#skills"
                 className="text-muted-foreground hover:text-foreground transition-colors hover:scale-105"
               >
-                Services
+                Skills
               </a>
               <a
                 href="#projects"
@@ -235,26 +208,26 @@ for prop in properties:
             <div>
               <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm mb-6 dark:bg-primary/20">
                 <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-                <span className="font-mono font-medium">Available for new projects</span>
+                <span className="font-mono font-medium">Available for opportunities</span>
               </div>
               <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                 <span className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent dark:from-foreground dark:to-muted-foreground/80">
-                  Professional
+                  Full Stack
                 </span>
                 <br />
-                <span className="text-primary">Web Scraping</span>
+                <span className="text-primary">Developer</span>
                 <br />
                 <span className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent dark:from-foreground dark:to-muted-foreground/80">
-                  Solutions
+                  Portfolio
                 </span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Transform your business with intelligent data extraction. We build robust, 
-                scalable web scraping solutions that deliver actionable insights and drive growth.
+                Passionate developer crafting modern web applications with cutting-edge technologies. 
+                Specializing in React, Next.js, and full-stack development to create exceptional user experiences.
               </p>
               <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
                 <Button size="lg" className="font-mono text-base px-8 py-6">
-                  Start Your Project <ArrowRight className="w-5 h-5 ml-2" />
+                  View Projects <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
                 <Button
                   variant="outline"
@@ -262,7 +235,7 @@ for prop in properties:
                   className="font-mono bg-transparent dark:border-border/50 dark:hover:bg-muted/20 px-8 py-6"
                 >
                   <Github className="w-5 h-5 mr-2" />
-                  View Code
+                  GitHub
                 </Button>
               </div>
             </div>
@@ -312,9 +285,9 @@ for prop in properties:
       <section id="services" className="py-20 px-6">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Our Services</h2>
+            <h2 className="text-4xl font-bold mb-4">My Skills</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Comprehensive web scraping solutions tailored to your business needs
+              Comprehensive development skills and expertise in modern web technologies
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -347,33 +320,33 @@ for prop in properties:
       <section className="py-16 px-6 bg-muted/30 dark:bg-muted/10">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
-            <h3 className="text-2xl font-bold mb-4">Our Process</h3>
-            <p className="text-muted-foreground">How we deliver exceptional results</p>
+            <h3 className="text-2xl font-bold mb-4">My Approach</h3>
+            <p className="text-muted-foreground">How I approach development projects</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
               {
                 step: "01",
-                title: "Discovery",
-                desc: "Understand your data needs and objectives",
+                title: "Planning",
+                desc: "Understand requirements and design architecture",
                 icon: <Globe className="w-6 h-6" />
               },
               {
                 step: "02",
-                title: "Strategy",
-                desc: "Design optimal scraping architecture",
+                title: "Development",
+                desc: "Build features with clean, maintainable code",
                 icon: <BarChart3 className="w-6 h-6" />
               },
               {
                 step: "03",
-                title: "Development",
-                desc: "Build robust, scalable solutions",
+                title: "Testing",
+                desc: "Ensure quality through comprehensive testing",
                 icon: <Code className="w-6 h-6" />
               },
               {
                 step: "04",
                 title: "Deployment",
-                desc: "Launch and maintain your data pipeline",
+                desc: "Deploy and maintain the application",
                 icon: <Server className="w-6 h-6" />
               },
             ].map((item, index) => (
@@ -423,7 +396,7 @@ for prop in properties:
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Featured Projects</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Real-world solutions that demonstrate our expertise and capabilities
+              Real-world projects that demonstrate my skills and development capabilities
             </p>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
@@ -481,8 +454,8 @@ for prop in properties:
       <section className="py-20 px-6">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Client Testimonials</h2>
-            <p className="text-xl text-muted-foreground">What our clients say about our work</p>
+            <h2 className="text-4xl font-bold mb-4">References</h2>
+            <p className="text-xl text-muted-foreground">What colleagues and managers say about my work</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
@@ -542,16 +515,16 @@ for prop in properties:
       <section id="contact" className="py-20 px-6">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-4xl font-bold mb-8">
-            Ready to Transform Your Data Strategy?
+            Let's Work Together!
           </h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Let's discuss how our web scraping expertise can drive your business forward. 
-            From initial consultation to full implementation, we're here to help.
+            I'm always interested in new opportunities and exciting projects. 
+            Whether you have a project in mind or just want to connect, I'd love to hear from you.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
             <Button size="lg" className="font-mono text-base px-8 py-6">
               <Mail className="w-5 h-5 mr-2" />
-              Start a Conversation
+              Get In Touch
             </Button>
             <Button 
               variant="outline" 
@@ -564,7 +537,7 @@ for prop in properties:
           </div>
           <div className="mt-8 p-6 bg-muted/30 rounded-lg dark:bg-muted/20">
             <p className="text-muted-foreground">
-              <strong>Response Time:</strong> Within 24 hours • <strong>Consultation:</strong> Free • <strong>Project Start:</strong> Within 1 week
+              <strong>Response Time:</strong> Within 24 hours • <strong>Location:</strong> Remote/On-site • <strong>Availability:</strong> Open to opportunities
             </p>
           </div>
         </div>
@@ -577,25 +550,25 @@ for prop in properties:
             <div className="space-y-4">
               <div className="flex items-center space-x-2">
                 <Terminal className="w-6 h-6 text-primary" />
-                <span className="font-mono text-lg font-bold">WebScraper.dev</span>
+                <span className="font-mono text-lg font-bold">John Doe</span>
               </div>
               <p className="text-sm text-muted-foreground">
-                Professional web scraping solutions for modern businesses.
+                Full Stack Developer passionate about creating exceptional web experiences.
               </p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Services</h4>
+              <h4 className="font-semibold mb-4">Skills</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>Data Extraction</li>
-                <li>Data Processing</li>
-                <li>Analytics & Insights</li>
-                <li>Infrastructure</li>
+                <li>Frontend Development</li>
+                <li>Backend Development</li>
+                <li>Full-Stack Solutions</li>
+                <li>DevOps & Deployment</li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Company</h4>
+              <h4 className="font-semibold mb-4">Portfolio</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>About Us</li>
+                <li>About Me</li>
                 <li>Projects</li>
                 <li>Contact</li>
                 <li>Blog</li>
@@ -612,10 +585,10 @@ for prop in properties:
           </div>
           <div className="border-t border-border pt-8 flex items-center justify-between dark:border-border/30">
             <p className="text-sm text-muted-foreground font-mono">
-              © 2024 WebScraper.dev. All rights reserved.
+              © 2024 John Doe. All rights reserved.
             </p>
             <p className="text-sm text-muted-foreground font-mono">
-              Built with precision and care.
+              Built with passion and modern technologies.
             </p>
           </div>
         </div>
